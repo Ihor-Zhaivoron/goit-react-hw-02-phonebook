@@ -5,9 +5,12 @@ export class App extends Component {
     contacts: [],
     name: '',
   };
-  contacts = {
-    name: 'Ihor',
-    id: '1',
+  // contacts = {
+  //   name: 'Ihor',
+  //   id: '1',
+  // };
+  addContact = e => {
+    this.setState({ name: e.currentTarget.value });
   };
   render() {
     return (
@@ -25,6 +28,8 @@ export class App extends Component {
       >
         <h1>Phonebook</h1>
         <input
+          value={this.state.name}
+          onChange={this.addContact}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -32,6 +37,7 @@ export class App extends Component {
           required
         />
         <button type="submit">Add contact</button>
+        <h2>Contacts</h2>
       </div>
     );
   }
