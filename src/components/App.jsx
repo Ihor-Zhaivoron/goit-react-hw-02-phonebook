@@ -5,12 +5,9 @@ export class App extends Component {
     contacts: [],
     name: '',
   };
-  // contacts = {
-  //   name: 'Ihor',
-  //   id: '1',
-  // };
   addContact = e => {
-    this.setState({ name: e.currentTarget.value });
+    const { value } = e.currentTarget;
+    this.setState({ name: value });
   };
   render() {
     return (
@@ -38,6 +35,11 @@ export class App extends Component {
         />
         <button type="submit">Add contact</button>
         <h2>Contacts</h2>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     );
   }
