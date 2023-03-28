@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 
 //========== components ==========
 import { Phonebook } from './Phonebook/Phonebook';
@@ -30,7 +30,10 @@ export class App extends Component {
       return;
     }
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, { id: id, name: name, number: number }],
+      contacts: [
+        ...prevState.contacts,
+        { id: nanoid(), name: name, number: number },
+      ],
     }));
   };
 
@@ -38,7 +41,7 @@ export class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
-  onDelete = e => {
+  onDelete = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
@@ -50,38 +53,22 @@ export class App extends Component {
 
     return (
       <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-          gap: '10px',
-        }}
+      // style={{
+      //   height: '100vh',
+      //   display: 'flex',
+      //   flexDirection: 'column',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   fontSize: 40,
+      //   color: '#010101',
+      //   gap: '10px',
+      // }}
       >
         <h1>Phonebook</h1>
         <Phonebook addContact={this.addContact} />
-        <ContactForm contacts={filteredContacts} onDelete={this.onDelete}>
+        <ContactForm contacts={filteredContacts} handleDelete={this.onDelete}>
           <Filter onFilter={this.onFilter} />
         </ContactForm>
-        {/* <input
-          value={this.state.name}
-          onChange={this.addContact}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-        <button type="submit">Add contact</button>
-        <h2>Contacts</h2> */}
-        {/* <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul> */}
       </div>
     );
   }
