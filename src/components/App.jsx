@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 //========== components ==========
 import { Phonebook } from './Phonebook/Phonebook';
@@ -7,7 +7,7 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 
 //========== styles ==========
-// import css from './App.module.css';
+import css from './App.module.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export class App extends Component {
@@ -30,10 +30,7 @@ export class App extends Component {
       return;
     }
     this.setState(prevState => ({
-      contacts: [
-        ...prevState.contacts,
-        { id: nanoid(), name: name, number: number },
-      ],
+      contacts: [...prevState.contacts, { id: id, name: name, number: number }],
     }));
   };
 
@@ -52,18 +49,7 @@ export class App extends Component {
     );
 
     return (
-      <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   flexDirection: 'column',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101',
-      //   gap: '10px',
-      // }}
-      >
+      <div className={css.phonebook}>
         <h1>Phonebook</h1>
         <Phonebook addContact={this.addContact} />
         <ContactForm contacts={filteredContacts} handleDelete={this.onDelete}>

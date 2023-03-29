@@ -32,7 +32,7 @@ export class Phonebook extends Component {
             className={css.field}
             type="text"
             name="name"
-            placeholder="Rosie Simpson"
+            placeholder="Jack Smith"
           />
           <ErrorMessage
             className={css.errorMessage}
@@ -44,7 +44,7 @@ export class Phonebook extends Component {
             className={css.field}
             type="tel"
             name="number"
-            placeholder="613246324"
+            placeholder="111-22-33"
           />
           <ErrorMessage
             className={css.errorMessage}
