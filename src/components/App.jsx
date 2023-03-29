@@ -22,7 +22,7 @@ export class App extends Component {
     filter: '',
   };
   addContact = (id, name, number) => {
-    const findContact = this.state.contacts.name.find(
+    const findContact = this.state.contacts.find(
       contact => contact.name === name
     );
     if (findContact) {
