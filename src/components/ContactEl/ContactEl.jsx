@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import css from './ContactEl.module.css';
 
 export function ContactEl({ contacts, handleDelete }) {
-  console.log(contacts);
   return (
     <>
       {contacts.map(contact => (
