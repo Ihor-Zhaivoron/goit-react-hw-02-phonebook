@@ -18,7 +18,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    name: '',
+
     filter: '',
   };
   addContact = (id, name, number) => {
@@ -52,9 +52,8 @@ export class App extends Component {
       <div className={css.phonebook}>
         <h1>Phonebook</h1>
         <Phonebook addContact={this.addContact} />
-        <ContactForm contacts={filteredContacts} handleDelete={this.onDelete}>
-          <Filter onFilter={this.onFilter} />
-        </ContactForm>
+        <Filter onFilter={this.onFilter} />
+        <ContactForm contacts={filteredContacts} handleDelete={this.onDelete} />
       </div>
     );
   }
